@@ -1,0 +1,64 @@
+﻿@model OnlineMedicineManagementSystem.Medicines
+
+@{
+    ViewData["Title"] = "BuyMedicines";
+}
+
+<h1>BuyMedicines</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="BuyMedicines">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="MedicineName" class="control-label"></label>
+                <input asp-for="MedicineName" class="form-control" />
+                <span asp-validation-for="MedicineName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Buy" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@{
+    try
+    {
+        if (TempData["buymedicinesstatus"] != null)
+        {
+            if (TempData["buymedicinesstatus"].ToString().Equals("ok"))
+            {
+                <script>
+                    swal(" Successfull", "Done", "success");
+                </script>
+            }
+            else
+            {
+                <script>
+                    swal("Failed", "please try again", "error");
+                </script>
+
+            }
+        }
+    }
+    catch { }
+}
+

@@ -1,0 +1,90 @@
+﻿@model OnlineMedicineManagementSystem.User
+
+@{
+    ViewData["Title"] = "Signup";
+}
+
+
+<hr />
+<div class="row">
+    <div class="col-md-6 offset-md-4">
+        <h1>Signup</h1>
+
+        <form asp-action="Signup">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MobileNo" class="control-label"></label>
+                <input asp-for="MobileNo" class="form-control" />
+                <span asp-validation-for="MobileNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmailId" class="control-label"></label>
+                <input asp-for="EmailId" class="form-control" />
+                <span asp-validation-for="EmailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Signup" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-6 offset-md-4">
+    <a asp-action="Signin">Already have a account...click here to login</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
+    @{
+    try
+    {
+        if (TempData["signupstatus"] != null)
+        {
+            if (TempData["signupstatus"].ToString().Equals("ok"))
+            {
+                <script>
+                    swal("Signup Successfull", "please proceed for login", "success");
+                </script>
+            }
+            else
+            {
+                <script>
+                    swal("Signup Failed", "please try again", "error");
+                </script>
+
+            }
+        }
+    }
+    catch { }
+}

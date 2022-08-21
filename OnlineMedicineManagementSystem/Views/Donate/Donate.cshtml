@@ -1,0 +1,89 @@
+﻿@model IEnumerable<OnlineMedicineManagementSystem.Medicines>
+
+@{
+    ViewData["Title"] = "Donate";
+}
+
+<h1>Donate</h1>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="bg-success text-white">
+            <th>
+                Sno
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.MedicineName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+           
+            <th></th>
+        </tr>
+       
+    </thead>
+    <tbody>
+ @{
+            int i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @i
+                    </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicineName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+           
+            <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Select
+                            </label>
+                        </div>
+            </td>
+            <td>
+            </td>
+            
+                    <td>
+                </tr>
+                i++;
+            }
+            
+        }
+    </tbody>
+    
+    
+</table>
+
+<div class="dropdown mt-3">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Select NGO
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">NGO1</a></li>
+
+    </ul>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12 bg-light text-right">
+            
+            <button type="button" class="btn btn-warning">Donate</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<OnlineMedicineManagementSystem.User>
+
+@{
+    ViewData["Title"] = "NGODetails";
+}
+
+<h1>NGODetails</h1>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="bg-success text-white">
+            <th>
+                Sno
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNo)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@{
+            int i = 1;
+            foreach (var item in Model) {
+        <tr>
+        <td>
+        @i
+        </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+                    <td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
